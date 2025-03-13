@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BrightSide - Daily Reflections </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <style>
+        :root {
+            --primary: #3a86ff;
+            /* Clear blue - primary brand color */
+            --secondary: #8d99ae;
+            /* Muted slate - secondary actions */
+            --accent: #ff6b6b;
+            /* Soft coral - subtle accents */
+            --light: #f8f9fa;
+            /* Off-white - light backgrounds */
+            --dark: #2b2d42;
+            /* Deep navy-gray - text */
+            --success: #4cb38a;
+            /* Muted teal - success states */
+            --warning: #ffd166;
+            /* Soft amber - attention */
+            --info: #8ecae6;
+            /* Light blue - info states */
+            --gradient-start: #3a86ff;
+            --gradient-end: #4cb38a;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--dark);
+        }
+
+        .bg-primary-custom {
+            background-color: var(--primary);
+        }
+
+        .bg-secondary-custom {
+            background-color: var(--secondary);
+        }
+
+        .bg-accent {
+            background-color: var(--accent);
+        }
+
+        .bg-light-custom {
+            background-color: var(--light);
+        }
+
+        .bg-success-custom {
+            background-color: var(--success);
+        }
+
+        .text-primary-custom {
+            color: var(--primary);
+        }
+
+        .text-secondary-custom {
+            color: var(--secondary);
+        }
+
+        .text-accent {
+            color: var(--accent);
+        }
+
+        .btn-primary-custom {
+            background-color: var(--primary);
+            border-color: var(--primary);
+            color: white;
+        }
+
+        .btn-primary-custom:hover {
+            background-color: var(--secondary);
+            border-color: var(--secondary);
+            color: white;
+        }
+
+        .btn-accent {
+            background-color: var(--accent);
+            border-color: var(--accent);
+            color: white;
+        }
+
+        .btn-accent:hover {
+            background-color: #e91e63;
+            border-color: #e91e63;
+            color: white;
+        }
+
+        .btn-outline-primary-custom {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .btn-outline-primary-custom:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .hero {
+            padding: 7rem 0;
+            background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+            color: white;
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .testimonial {
+            background-color: white;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 10px 25px rgba(67, 97, 238, 0.1);
+        }
+
+        .pricing-card {
+            border: none;
+            border-radius: 16px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(67, 97, 238, 0.1);
+        }
+
+        .footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 3rem 0;
+        }
+
+        .gradient-text {
+            background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+        }
+
+        .gradient-bg {
+            background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+        }
+
+        .section-divider {
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%);
+            margin: 0;
+            border: none;
+        }
+
+        /* Animation for hero text */
+        .animate-in {
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .avatar-circle {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--info) 0%, var(--primary) 100%);
+            color: white;
+            font-weight: bold;
+        }
+
+        .card-accent {
+            border-top: 4px solid var(--accent);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white py-3 shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">
+                <i class="bi bi-brightness-high text-primary-custom"></i> <span class="gradient-text">BrightSide</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#how-it-works">How It Works</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#benefits">Benefits</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#pricing">Pricing</a>
+                    </li>
+                    <li class="nav-item ms-lg-3">
+                        <a class="btn btn-accent rounded-pill px-4" href="#get-started">Get Started</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 animate-in">
+                    <h1 class="display-4 fw-bold mb-4">Find Your <span class="text-accent">Bright Side</span> Every Day
+                    </h1>
+                    <p class="lead mb-4 opacity-90">A simple evening reflection practice delivered to your inbox. Build
+                        gratitude, capture learnings, and nurture hope—one day at a time.</p>
+                    <div class="d-flex flex-wrap gap-2">
+                        <a href="#get-started" class="btn btn-light btn-lg rounded-pill px-4">Start Your Journey</a>
+                        <a href="#how-it-works" class="btn btn-outline-light btn-lg rounded-pill px-4">Learn More</a>
+                    </div>
+                </div>
+                <div class="col-lg-6 d-flex justify-content-center mt-5 mt-lg-0">
+                    <img src="https://images.unsplash.com/photo-1512758017271-d7b84c2113f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                        alt="Person journaling" class="img-fluid rounded-4 shadow" style="max-height: 400px;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr class="section-divider m-0">
+
+    <!-- How It Works Section -->
+    <section class="py-5 bg-white" id="how-it-works">
+        <div class="container py-5">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold">How BrightSide Works</h2>
+                <p class="lead text-muted">Simple. Effective. Transformative.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="text-center p-4">
+                        <div class="feature-icon">
+                            <i class="bi bi-envelope-heart"></i>
+                        </div>
+                        <h4>Evening Email</h4>
+                        <p class="text-muted">Each evening, receive an inspiring quote and a personalized link to your
+                            reflection form.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="text-center p-4">
+                        <div class="feature-icon">
+                            <i class="bi bi-journal-text"></i>
+                        </div>
+                        <h4>Daily Reflection</h4>
+                        <p class="text-muted">Take 3 minutes to note your gratitudes, learnings, and hopes for tomorrow.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="text-center p-4">
+                        <div class="feature-icon">
+                            <i class="bi bi-graph-up-arrow"></i>
+                        </div>
+                        <h4>Weekly Insights</h4>
+                        <p class="text-muted">Every Sunday, receive a personalized recap of your week's reflections and
+                            patterns.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section
+    <section class="py-5 bg-light" id="benefits">
+        <div class="container py-5">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                        alt="People smiling" class="img-fluid rounded-4 shadow">
+                </div>
+                <div class="col-lg-6">
+                    <h2 class="fw-bold mb-4">The Science of Looking on the Bright Side</h2>
+                    <div class="d-flex mb-4">
+                        <div class="me-3 text-primary-custom">
+                            <i class="bi bi-check-circle-fill fs-4"></i>
+                        </div>
+                        <div>
+                            <h5>Increased Happiness</h5>
+                            <p class="text-muted">Regular gratitude practice has been shown to increase happiness by up
+                                to 25%.</p>
+                        </div>
+                    </div>
+                    <div class="d-flex mb-4">
+                        <div class="me-3 text-primary-custom">
+                            <i class="bi bi-check-circle-fill fs-4"></i>
+                        </div>
+                        <div>
+                            <h5>Reduced Stress</h5>
+                            <p class="text-muted">Evening reflection helps process the day's events, leading to better
+                                sleep and lower anxiety.</p>
+                        </div>
+                    </div>
+                    <div class="d-flex mb-4">
+                        <div class="me-3 text-primary-custom">
+                            <i class="bi bi-check-circle-fill fs-4"></i>
+                        </div>
+                        <div>
+                            <h5>Greater Resilience</h5>
+                            <p class="text-muted">Identifying daily learnings builds a growth mindset and improves
+                                adaptability.</p>
+                        </div>
+                    </div>
+                    <div class="d-flex">
+                        <div class="me-3 text-primary-custom">
+                            <i class="bi bi-check-circle-fill fs-4"></i>
+                        </div>
+                        <div>
+                            <h5>Improved Relationships</h5>
+                            <p class="text-muted">People who practice gratitude report stronger connections with others.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- Testimonials
+    <section class="py-5 bg-white">
+        <div class="container py-5">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold">What Our Members Say</h2>
+                <p class="lead text-muted">Join others finding their bright side every day</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="testimonial">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="text-warning me-2">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                            </div>
+                        </div>
+                        <p class="fst-italic mb-3">"BrightSide has become my favorite evening ritual. Just 3 minutes of
+                            reflection has changed how I see my days."</p>
+                        <div class="d-flex align-items-center">
+                            <div class="avatar-circle">
+                                <span>JM</span>
+                            </div>
+                            <div class="ms-3">
+                                <h6 class="mb-0">Jamie Morgan</h6>
+                                <small class="text-muted">Member for 6 months</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="testimonial">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="text-warning me-2">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                            </div>
+                        </div>
+                        <p class="fst-italic mb-3">"The weekly recaps are amazing! I love seeing patterns in what I'm
+                            grateful for and how my mood improves over time."</p>
+                        <div class="d-flex align-items-center">
+                            <div class="avatar-circle">
+                                <span>SP</span>
+                            </div>
+                            <div class="ms-3">
+                                <h6 class="mb-0">Sam Patel</h6>
+                                <small class="text-muted">Member for 3 months</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="testimonial">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="text-warning me-2">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                            </div>
+                        </div>
+                        <p class="fst-italic mb-3">"I was skeptical at first, but now I can't imagine ending my day
+                            without my BrightSide reflection. It's become essential."</p>
+                        <div class="d-flex align-items-center">
+                            <div class="avatar-circle">
+                                <span>LT</span>
+                            </div>
+                            <div class="ms-3">
+                                <h6 class="mb-0">Lee Thompson</h6>
+                                <small class="text-muted">Member for 8 months</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- Pricing Section -->
+    <section class="py-5 bg-light" id="pricing">
+        <div class="container py-5">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold">Simple Pricing</h2>
+                <p class="lead text-muted">Start your journey to a brighter outlook</p>
+            </div>
+            <div class="row g-4 justify-content-center">
+                <div class="col-md-4">
+                    <div class="card pricing-card h-100">
+                        <div class="card-header bg-primary-custom text-white text-center py-4">
+                            <h4 class="mb-0">Monthly</h4>
+                            <span class="badge bg-white text-primary mt-2">Cancel Anytime</span>
+                        </div>
+                        <div class="card-body p-5">
+                            <h2 class="card-title mb-4">$7<small class="text-muted">/month</small></h2>
+                            <ul class="list-unstyled mb-4">
+                                <li class="mb-3"><i class="bi bi-check-circle-fill text-primary-custom me-2"></i>Daily
+                                    evening reflections</li>
+                                <li class="mb-3"><i class="bi bi-check-circle-fill text-primary-custom me-2"></i>Weekly
+                                    personalized recaps</li>
+                                <li class="mb-3"><i
+                                        class="bi bi-check-circle-fill text-primary-custom me-2"></i>Unlimited
+                                    reflection history</li>
+                                <li class="mb-3"><i class="bi bi-check-circle-fill text-primary-custom me-2"></i>Cancel
+                                    anytime</li>
+                            </ul>
+                            <a href="#get-started"
+                                class="btn btn-primary btn-lg px-4 w-100 mt-4">Choose Monthly</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card pricing-card h-100 border-2 card-accent">
+                        <div class="card-header bg-accent text-white text-center py-4">
+                            <h4 class="mb-0">Annual</h4>
+                            <span class="badge bg-white text-accent mt-2">Save 25%</span>
+                        </div>
+                        <div class="card-body p-5">
+                            <h2 class="card-title mb-1">$5<small class="text-muted">/month</small></h2>
+                            <p class="text-muted mb-4">Billed as $60 annually</p>
+                            <ul class="list-unstyled mb-4">
+                                <li class="mb-3"><i class="bi bi-check-circle-fill text-primary-custom me-2"></i>All
+                                    monthly features</li>
+                                <li class="mb-3"><i
+                                        class="bi bi-check-circle-fill text-primary-custom me-2"></i>Quarterly insight
+                                    reports</li>
+                                <li class="mb-3"><i class="bi bi-check-circle-fill text-primary-custom me-2"></i>Custom
+                                    reflection time</li>
+                                <li class="mb-3"><i
+                                        class="bi bi-check-circle-fill text-primary-custom me-2"></i>Priority support
+                                </li>
+                            </ul>
+                            <a href="#get-started" class="btn btn-accent btn-lg  px-4 w-100 mt-4">Choose
+                                Annual</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-5 gradient-bg text-white" id="get-started">
+        <div class="container py-5 text-center">
+            <h2 class="fw-bold mb-4">Begin Your BrightSide Journey Today</h2>
+            <p class="lead mb-5">Join thousands of others discovering gratitude, learning, and hope every day.</p>
+
+            <!-- Email Signup Form -->
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <div class="card bg-white p-4 rounded-4 shadow">
+                        <div class="card-body">
+                            <h5 class="card-title text-dark mb-4">Sign up for early access</h5>
+                            <form>
+                                <div class="mb-3">
+                                    <input type="text" class="form-control form-control-lg rounded-pill"
+                                        placeholder="Your name" required>
+                                </div>
+                                <div class="mb-3">
+                                    <input type="email" class="form-control form-control-lg rounded-pill"
+                                        placeholder="Your email" required>
+                                </div>
+                                <button type="submit" class="btn btn-accent btn-lg rounded-pill w-100">Get
+                                    Started</button>
+                            </form>
+                            <p class="text-muted small mt-3 mb-0">By signing up, you agree to our Terms of Service and
+                                Privacy Policy.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <h5 class="text-white mb-4"><i class="bi bi-brightness-high"></i> BrightSide</h5>
+                    <p class="text-white-50">Helping you find the bright side of life, one reflection at a time.</p>
+                    <div class="d-flex gap-3 mt-4">
+                        <a href="#" class="text-white-50 hover-text-white"><i class="bi bi-twitter"></i></a>
+                        <a href="#" class="text-white-50 hover-text-white"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="text-white-50 hover-text-white"><i class="bi bi-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+                    <h6 class="text-white mb-4">Company</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">About</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Careers</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+                    <h6 class="text-white mb-4">Resources</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Help Center</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Contact Us</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Privacy</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Terms</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-4">
+                    <h6 class="text-white mb-4">Stay Updated</h6>
+                    <p class="text-white-50">Subscribe to our newsletter for tips on mindfulness and well-being.</p>
+                    <div class="input-group mb-3">
+                        <input type="email" class="form-control rounded-pill rounded-end" placeholder="Coming Soon" disabled >
+                        <button class="btn btn-accent rounded-pill rounded-start" type="button" disabled></button>
+                    </div>
+                </div>
+            </div>
+            <hr class="mt-5 mb-4 border-secondary">
+            <div class="text-center text-white-50">
+                <small>&copy; 2023 BrightSide. All rights reserved.</small>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
